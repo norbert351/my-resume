@@ -7,14 +7,14 @@ const testimonials = [
   {
     id: 1,
     text: "ZubbyCrypt brings clarity to complex systems. His ability to translate technical ideas into practical solutions made a huge difference for our product.",
-    author: "Product Lead",
-    role: "Web3 Startup",
+    author: "Delour",
+    role: "Reader",
   },
   {
     id: 2,
     text: "Clean architecture, clear communication, and strong execution. Working with ZubbyCrypt felt like adding a senior engineer to our team.",
     author: "Founder",
-    role: "Early-Stage Startup",
+    role: "Early Stage Startup",
   },
   {
     id: 3,

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { FaXTwitter, FaTelegram, FaMedium, FaGithub } from "react-icons/fa6";
 
 export default function Contact() {
@@ -113,7 +113,7 @@ export default function Contact() {
     }
   };
 
-  const animateCounters = () => {
+  const animateCounters = useCallback(() => {
     const duration = 2000;
     const steps = 60;
     let step = 0;
@@ -133,7 +133,7 @@ export default function Contact() {
         setCounters(targetValues);
       }
     }, duration / steps);
-  };
+  }, [targetValues.projects, targetValues.products, targetValues.people]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -148,7 +148,7 @@ export default function Contact() {
 
     if (statsRef.current) observer.observe(statsRef.current);
     return () => observer.disconnect();
-  }, []);
+  }, [animateCounters]);
 
   return (
     <footer
@@ -159,11 +159,11 @@ export default function Contact() {
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Let's Work <span className="text-purple-400">Together</span>
+            Let&apos;s Work <span className="text-purple-400">Together</span>
           </h2>
           <p className="text-lg text-gray-300 leading-relaxed">
-            Have a project or collaboration in mind? Send a message and I'll get
-            back to you within 24 hours.
+            Have a project or collaboration in mind? Send a message and
+            I&apos;ll get back to you within 24 hours.
           </p>
         </div>
 
@@ -264,7 +264,7 @@ export default function Contact() {
                       />
                     </svg>
                     <span className="text-sm">
-                      Message sent successfully! I'll get back to you soon.
+                      Message sent successfully! I&apos;ll get back to you soon.
                     </span>
                   </div>
                 </div>
